@@ -78,6 +78,75 @@ is_odd(1) # True
 is_odd(0) # False
 ##########################
 
-
+#Modify is_odd so that it uses a call to is_even to determine if its argument is an odd integer.
 
 ###########################
+def is_even(n):
+    return n % 2 == 0
+
+def is_odd(n):
+    return (not is_even(n))
+############################
+#test cases and expected results
+is_odd(10), #False
+is_odd(5)  #True
+is_odd(1) #True
+is_odd(0) #False
+#############################
+
+#10 - Write a function is_rightangled which, given the length of three sides of a triangle,
+# will determine whether the triangle is right-angled. Assume that the third argument
+# to the function is always the longest side. It will return True if the triangle is
+# right-angled, or False otherwise.
+
+#############################
+def is_rightangled(a, b, c):
+    return abs((a ** 2 + b ** 2) - (c ** 2)) < 0.001
+#############################
+# test cases and expected results
+is_rightangled(1.5, 2.0, 2.5) #True
+is_rightangled(4.0, 8.0, 16.0) #False
+is_rightangled(4.1, 8.2, 9.1678787077) #True
+is_rightangled(4.1, 8.2, 9.16787) #True
+is_rightangled(4.1, 8.2, 9.168) #False
+is_rightangled(0.5, 0.4, 0.64031) #True
+##############################
+
+# 11 - Extend the above program so that the sides can be given to the function
+# in any order.
+
+#############################
+def is_rightangled(a, b, c):
+    if a > b and a > c:
+        return abs((b ** 2 + c ** 2) - (a ** 2)) < 0.001
+    elif b > a and b > c:
+        return abs((a ** 2 + c ** 2) - (b ** 2)) < 0.001
+    else:
+        return abs((a ** 2 + b ** 2) - (c ** 2)) < 0.001
+############################
+# test cases and expected results
+is_rightangled(1.5, 2.0, 2.5) #True
+is_rightangled(16.0, 4.0, 8.0) #False
+is_rightangled(4.1, 9.1678787077, 8.2) #True
+is_rightangled(9.16787, 4.1, 8.2) #True
+is_rightangled(4.1, 8.2, 9.168) #False
+is_rightangled(0.5, 0.64031, 0.4) #True
+##############################
+year = int(input("Please enter a year between 1900-2099 to find out the date of Easter for that year"))
+if year >= 1900 and year <= 2099:
+    a = year % 19
+    b = year % 4
+    c = year % 7
+    d = (19 * a + 24) % 30
+    e = (2 * b + 4 * c + 6 * d + 5) % 7
+    dateofeaster = 22 + d + e
+
+    if year == 1954 or year == 1981 or year == 2049 or year == 2076:
+        dateofeaster = dateofeaster - 7
+
+    if dateofeaster > 31:
+        print("April", str(dateofeaster - 31) + ",", year)
+    else:
+        print("March", str(dateofeaster) + ",", year)
+else:
+    print("Error: Invalid year.  Please enter a year between 1900 and 2099")
