@@ -4,7 +4,7 @@
 # of the letters contained in the string.  Add an optional parameter to 
 #your stretch function that indicates how many times each letter should 
 #be duplicated. The default value for this optional parameter should be 2.
-#Add an additional optional parameter to your stretch function that contains 
+# Add an additional optional parameter to your stretch function that contains 
 #a list of characters. This version of stretch will only duplicate letters 
 #that are contained in the list. The default value for this new parameter 
 #should be the list of lowercase characters.
